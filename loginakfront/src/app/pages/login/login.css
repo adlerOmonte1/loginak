@@ -1,0 +1,48 @@
+.fondo-pantalla{
+  height:100vh ; /* 100%alto de la ventana  */
+  background-color: rgb(50, 77, 77);
+
+  display: flex;
+  justify-content: center; /* contenido al centro "TIPO TEXTO" */
+  align-items: center; /* Contenido al centro en ALTURA*/
+
+}
+.tarjeta-login{
+  background-color: rgb(219, 209, 209);
+  padding: 30px; /* CARTA CON 30 PX DE borde  */
+  width: 300px; /*ancho fijo de 300px */
+  border-radius: 10px; /* bordes redondeados */
+  box-shadow: 0px 4px 40px rgba(39, 24, 24, 0.986); /*combra de la tarjeta */
+  /* DISEÑO "ESPACIO DE OBJETOS DENTRO DE MI DIV"*/
+  display: flex; /* TODO EN FILAS*/
+  flex-direction: column; /*ORDEN EN COLUMNAS */
+  gap: 10px; /* Espacio en cada objeto */
+
+}
+h2{
+  text-align: center;
+  margin: 0;
+  color: brown;
+}
+p{
+  text-align: left;
+  margin: 0;
+  color: black;
+
+}
+input{
+  padding: 10px; /*Altura de mis labels */
+  border: 1px solid #ccc; /*bordes suaves */
+  border-radius: 10px;
+  box-shadow: 0px 4px 40px rgba(12, 11, 11, 0.586);
+}
+button{
+  padding:  10px;
+  border: 1px solid #ccc;
+  border-radius: 15px ;
+  box-shadow: 0px 4px 40px rgba(5, 5, 5, 0.286);
+}
+button:hover{
+  background-color: green;
+}
+

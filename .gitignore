@@ -1,0 +1,15 @@
+# --- DJANGO / PYTHON ---
+__pycache__/
+*.pyc
+db.sqlite3
+.env
+venv/
+env/
+.DS_Store
+
+# --- ANGULAR / NODE ---
+node_modules/
+dist/
+.angular/
+.vscode/
+package-lock.json  # Opcional: A veces es bueno subirlo, a veces no. Yo prefiero subirlo.

@@ -1,0 +1,14 @@
+<div class="fondo-pantalla">
+  <div class="tarjeta-login">
+    <h2>Bienvenidos</h2>
+    <p>Ingrese tus datos</p>
+
+    <label>Correo Electronico:</label>
+    <input type="email" [(ngModel)]="email" placeholder="ejemplo:abc@gmail.com">
+    <label> Contraseña:</label>
+    <input type="password" [(ngModel)]="password" placeholder="******">
+
+    <button (click)="onLogin()">Ingresar</button>
+
+  </div>
+</div>
