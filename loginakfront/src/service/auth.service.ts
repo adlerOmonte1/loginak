@@ -5,11 +5,11 @@ import { email } from '@angular/forms/signals';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private loginUrl = 'http://127.0.0.1:8000/api/login/';
+  private loginUrl = 'http://127.0.0.1:8000/api/auth/login/';
 
   constructor(private http: HttpClient) {}
 
-  login(username: string, password: string) {
+  login(email: string, password: string) {
     return this.http.post<any>(this.loginUrl, { email, password }).pipe(
       tap(res=>{
         console.log('Respuesta del servidor:',res)
