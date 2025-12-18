@@ -2,9 +2,10 @@ from rest_framework import serializers
 from .models import *
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 class UserSerializer(serializers.ModelSerializer):
+    nombre_rol = serializers.CharField(source='rol.nombre', read_only=True)
     class Meta:
         model = Usuario
-        fields = ['id','email','username','first_name','last_name','rol']
+        fields = ['id','email','username','first_name','last_name','rol','nombre_rol']
 
 # POR INVESTIGAR
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -35,11 +36,21 @@ class RegisterSerializer(serializers.ModelSerializer):
         fields = ['email','password','username','first_name']
 
     def create(self, validated_data):
+        username_final = validated_data.get('username')
+        if not username_final:
+            username_final = validated_data['email']
 
         user = Usuario.objects.create_user(
             email=validated_data['email'],
             password=validated_data['password'],
-            username= validated_data.get('username',''),
-            first_name = validated_data.get('first_name','')
+            username= username_final,
+            first_name = validated_data.get('first_name',''),
+            last_name = validated_data.get('last_name','')
         )
+        try:
+            rol_cliente = Rol.objects.get(nombre='cliente')
+            user.rol = rol_cliente
+            user.save()
+        except Rol.DoesNotExist:
+            pass
         return user
